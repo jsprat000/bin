@@ -1,9 +1,9 @@
 T1070.004 Indicator Removal on Host File Deletion
 ```
-IF EXIST "%TEMP%\AET\hUTC\outputs\delete_t1070.004.txt" (Echo Success Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) else (Echo Fail Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
-echo apt99_deleted_this_file_t1070.004 >> %TEMP%\AET\hUTC\outputs\delete_t1070.004.txt
-IF EXIST "%TEMP%\AET\hUTC\outputs\delete_t1070.004.txt" && (Echo Success Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) || (Echo Fail Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
-del /f %TEMP%\AET\hUTC\outputs\delete_t1070.004.txt && (Echo Success Attack: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) || (Echo Fail Attack: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
+IF EXIST "%temp%\aet\kaskaskia\outputs\delete_t1070.004.txt" (Echo Success Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) else (Echo Fail Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
+echo apt99_deleted_this_file_t1070.004 >> %temp%\aet\kaskaskia\outputs\delete_t1070.004.txt
+IF EXIST "%temp%\aet\kaskaskia\outputs\delete_t1070.004.txt" && (Echo Success Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) || (Echo Fail Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
+del /f %temp%\aet\kaskaskia\outputs\delete_t1070.004.txt && (Echo Success Attack: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) || (Echo Fail Attack: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
 ```
 
 T1218.001 Test 3
@@ -115,3 +115,11 @@ foreach($member in $fmm) {
         Write-Host "Successfully Renamed Administrator Account on" $hostname
         }
     }
+
+# Local src file directory: $env:temp\aet\kaskaskia\src
+# Output directory $env:temp\aet\kaskaskia\outputs
+# Remote directory https://raw.githubusercontent.com/jsprat000/bin/main/
+
+# Local src file directory: %temp%\aet\kaskaskia\src
+# Output directory %temp%\aet\kaskaskia\outputs
+# Remote directory https://raw.githubusercontent.com/jsprat000/bin/main/
