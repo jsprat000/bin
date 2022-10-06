@@ -1,3 +1,10 @@
+T1070.004 Indicator Removal on Host File Deletion Delete an entire folder
+```
+mkdir %temp%\aet\kaskaskia\outputs\t1070_004_test2_folder
+IF EXIST "%temp%\aet\kaskaskia\outputs\t1070_004_test2_folder" ( Echo Success Check Prereq:  T1070.004 - File Deletion - Test #2 - Delete an Entire Folder) ELSE ( Echo Fail Check Prereq: T1070.004 - File Deletion - Test #2 - Delete an Entire Folder)
+rmdir /s /q %temp%\aet\kaskaskia\outputs\t1070_004_test2_folder
+```
+
 T1070.004 Indicator Removal on Host File Deletion
 ```
 IF EXIST "%temp%\aet\kaskaskia\outputs\delete_t1070.004.txt" (Echo Success Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) else (Echo Fail Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
