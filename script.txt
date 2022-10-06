@@ -1,3 +1,16 @@
+```
+Test 3 - conhost.exe
+@Echo off
+conhost.exe "notepad.exe" && (Echo Success Attack: T1202 Test 3 - Indirect Command Execution - conhost.exe) || (Echo Fail Attack: T1202 Test 3 - Indirect Command Execution - conhost.exe)
+```
+
+```
+T1202 Test 2 forfiles.exe
+@Echo off
+forfiles /p c:\windows\system32 /m notepad.exe /c calc.exe && (Echo Success Attack: T1202 Test 2 - Indirect Command Execution forfiles.exe) || (Echo Fail Attack: T1202 Test 2 - Indirect Command Execution forfiles.exe)
+ && (Echo Success Attck: T1202 Test 2 - Indirect Command Execution forfiles.exe) || (Echo Fail Attck: T1202 Test 2 - Indirect Command Execution forfiles.exe)
+```
+
 T1202 Test 1 pcalua.exe
 :: Run with command shell
 ```
