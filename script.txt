@@ -1,4 +1,14 @@
-T1078.001
+T1078 Test 2
+###### Step 1 Attack
+```
+net user %Guest!!! /active:yes
+```
+###### Step 2 Cleanup
+```
+net user %Guest!!! /active:yes
+net user %Guest!!! /active:no
+
+T1078.001 Test 1
 ###### Step 1 Attack
 ```
 net user HaHa_746973985202 /active:yes
