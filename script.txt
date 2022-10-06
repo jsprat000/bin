@@ -1,3 +1,15 @@
+T2078.002 Test 3
+###### Run with command prompt
+```
+net user apt99 /add
+net user apt99 Apt9912345678!
+net localgroup administrators apt99 /add && (Echo Success Attack: T1078.003 Valid Accounts Local Accounts  - Test 1 - Create local account with admin privileges) || (Echo Fail Attack: T1078.003 Valid Accounts Local Accounts  - Test 1 - Create local account with admin privileges)
+```
+###### Option
+```
+net user "apt99" "%APT99_Summer$!" /expires:10/22/2022 /Passwordchg:Yes /Passwordreq:Yes /add
+```
+
 T1078 Test 2
 ###### Step 1 Attack
 ```
