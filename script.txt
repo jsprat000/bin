@@ -1,3 +1,17 @@
+T1202 Test 1 pcalua.exe
+:: Run with command shell
+```
+@Echo off
+```
+```
+pcalua.exe -a calc.exe && (Echo Success Attack: T1202 Test 1 - Indirect Command Execution pcalua.exe) || (Echo Fail Attack: T1202 Test 1 - Indirect Command Execution pcalua.exe)
+```
+```
+pcalua.exe -a C:\Windows\System32\calc.exe && (Echo Success Attck: T1202 Test 1 - Indirect Command Execution pcalua.exe) || (Echo Fail Attck: T1202 Test 1 - Indirect Command Execution pcalua.exe)
+```
+
+
+T1059.003
 New-Item -Type Directory (split-path $env:temp\aet\kaskaskia\src\t1059.003_read_execute_cmd_file.cmd) -ErrorAction ignore | Out-Null
 Invoke-WebRequest "https://github.com/jsprat000/bin/blob/main/t1059.003_read_execute_cmd_file.cmd" -OutFile "$env:temp\aet\kaskaskia\src\t1059.003_read_execute_cmd_file.cmd"
 
