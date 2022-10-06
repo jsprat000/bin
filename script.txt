@@ -1,3 +1,17 @@
+```
+T1070.004 Indicator Removal on Host File Deletion Delete an entire folder Test 3 - File Deletion - Powershell
+New-Item -Path $env:TEMP\AET\hUTC\outputs\deleteAPT99_file.txt | Out-Null
+	if (Test-Path $env:TEMP\AET\hUTC\outputs\deleteAPT99_file.txt) 
+	{write-host "Success Check Prereq: T1070.004 Indicator Removal on Host - Test 3 - File Deletion - Powershell" -ForegroundColor Green} 
+	else 
+	{write-host "Fail Check Prereq: T1070.004 Indicator Removal on Host - Test 3 - File Deletion - Powershell" -ForegroundColor Red}
+Remove-Item -Path $env:TEMP\AET\hUTC\outputs\deleteAPT99_file.txt
+	if (Test-Path $env:TEMP\AET\hUTC\outputs\deleteAPT99_file.txt) 
+	{write-host "Success Attack: T1070.004 Indicator Removal on Host - Test 3 - File Deletion - Powershell" -ForegroundColor Green} 
+	else 
+	{write-host "Fail Attack: T1070.004 Indicator Removal on Host - Test 3 - File Deletion - Powershell" -ForegroundColor Red}
+```
+
 T1070.004 Indicator Removal on Host File Deletion Delete an entire folder
 ```
 mkdir %temp%\aet\kaskaskia\outputs\t1070_004_test2_folder
