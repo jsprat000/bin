@@ -1,3 +1,6 @@
+T1070.004 - Indicator Removal on Host: File Deletion 9 - Delete Prefetch File
+Remove-Item -Path (Join-Path "$Env:SystemRoot\prefetch\" (Get-ChildItem -Path "$Env:SystemRoot\prefetch\*.pf" -Name)[0])
+
 ```
 T1070.004 Indicator Removal on Host File Deletion Delete a single file - ```
 New-Item -Path $env:temp\aet\kaskaskia\outputs\deleteAPT99_file.txt | Out-Null
