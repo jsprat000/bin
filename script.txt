@@ -1,3 +1,11 @@
+T1070.004 Indicator Removal on Host File Deletion
+```
+IF EXIST "%TEMP%\AET\hUTC\outputs\delete_t1070.004.txt" (Echo Success Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) else (Echo Fail Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
+echo apt99_deleted_this_file_t1070.004 >> %TEMP%\AET\hUTC\outputs\delete_t1070.004.txt
+IF EXIST "%TEMP%\AET\hUTC\outputs\delete_t1070.004.txt" && (Echo Success Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) || (Echo Fail Get Prereq: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
+del /f %TEMP%\AET\hUTC\outputs\delete_t1070.004.txt && (Echo Success Attack: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd) || (Echo Fail Attack: T1070.004 - File Deletion - Test #1 - Delete a single file - Windows cmd)
+```
+
 T1218.001 Test 3
 ###### Run with Powershell
 ###### Step 1 Get Prereqs
