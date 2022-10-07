@@ -1,3 +1,19 @@
+# T1070.006 - Indicator Removal on Host: Timestomp Test 2 - Modify file last modified timestamp
+# Local src file directory: $env:temp\aet\kaskaskia\src
+# Output directory $env:temp\aet\kaskaskia\outputs
+# Remote directory https://raw.githubusercontent.com/jsprat000/bin/main/
+# Run with powershell
+Get-ChildItem $env:temp\aet\kaskaskia\src\t1070.006_timestomp1.txt | % { $_.LastWriteTime = "01/01/1971 00:00:00" }
+
+# Dependencies: Run with powershell
+if (Test-Path $env:temp\aet\kaskaskia\src\t1070.006_timestomp1.txt) {exit 0} else {exit 1}
+
+# Get Prereq Commands:
+New-Item -Path $env:temp\aet\kaskaskia\src\t1070.006_timestomp1.txt -Force | Out-Null
+Set-Content $env:temp\aet\kaskaskia\src\t1070.006_timestomp1.txt -Value "T1551.006 Timestomp" -Force | Out-Null
+
+
+
 T1070.004 - Indicator Removal on Host: File Deletion 9 - Delete Prefetch File
 Remove-Item -Path (Join-Path "$Env:SystemRoot\prefetch\" (Get-ChildItem -Path "$Env:SystemRoot\prefetch\*.pf" -Name)[0])
 
