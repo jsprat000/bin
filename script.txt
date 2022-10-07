@@ -1,3 +1,6 @@
+T1078.003
+net user "apt99" "%Summ3r!#@#$" /expires:10/22/2022 /Passwordchg:Yes /Passwordreq:Yes /add 
+
 # T1070.006 - Indicator Removal on Host: Timestomp Test 4 - Timestomp a File
 # Local src file directory: $env:temp\aet\kaskaskia\src
 # Output directory $env:temp\aet\kaskaskia\outputs
